@@ -31,7 +31,9 @@ public class Loging {
 		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://utest.com/signup/personal");
+		driver.get("https://utest.com");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@href=\"/signup/personal\"]")).click();
 	}
 	
 	@When("write user")
@@ -43,7 +45,7 @@ public class Loging {
 	    driver.findElement(lastName).sendKeys("Mendoza");
 	    driver.findElement(email).clear();
 		Thread.sleep(2000);
-	    driver.findElement(email).sendKeys("damendozam1@gmail.com");
+	    driver.findElement(email).sendKeys("damendozam2@gmail.com");
 	    driver.findElement(month).findElement(By.xpath("//option[@label=\"August\"]")).click();
 	    driver.findElement(day).findElement(By.xpath("//option[@label=\"10\"]")).click();
 	    driver.findElement(year).findElement(By.xpath("//option[@label=\"1993\"]")).click();
